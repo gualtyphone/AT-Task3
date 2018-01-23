@@ -40,7 +40,7 @@ public class VoxelLevelLoader : MonoBehaviour {
 
             var foundChunk = chunks.Find(c => c.pos == (chunkPos * 16));
 
-            foundChunk.SetCell(new Vector3Int(Mathf.FloorToInt(pos.x % 16), Mathf.FloorToInt(pos.y % 256), Mathf.FloorToInt(pos.z % 16)));
+            foundChunk.SetCell(new Vector3Int(Mathf.FloorToInt(pos.x % 16), Mathf.FloorToInt(pos.y % 256), Mathf.FloorToInt(pos.z % 16)), blockType);
         }
         else
         {
@@ -120,6 +120,7 @@ public class VoxelLevelLoader : MonoBehaviour {
         foreach (var c in chunks)
         {
             var go = new GameObject();
+            go.name = "Chunk";
             go.transform.parent = this.transform;
             go.AddComponent<VoxelRender>();
             go.GetComponent<MeshRenderer>().material = new Material(baseMat);

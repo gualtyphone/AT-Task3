@@ -20,9 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4502562266158874}
   - component: {fileID: 114973917942111946}
-  - component: {fileID: 114654915075583488}
-  - component: {fileID: 33750684391185332}
-  - component: {fileID: 23896111660519196}
   m_Layer: 0
   m_Name: VoxelMesh
   m_TagString: Untagged
@@ -37,65 +34,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1635527556955470}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -80.799644, y: 302.7303, z: -162.994}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23896111660519196
-MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1635527556955470}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &33750684391185332
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1635527556955470}
-  m_Mesh: {fileID: 0}
---- !u!114 &114654915075583488
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1635527556955470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8b945fe298b11246bea4555ecfd9358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scale: 1
 --- !u!114 &114973917942111946
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -107,12 +51,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70620ae2ed433744c9a4338d1e23a8b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texture: {fileID: 2800000, guid: 6882277d41892e644809808f40d85ea3, type: 3}
+  texture: {fileID: 2800000, guid: 3cfabaace491fb34381f4b7eb3e0ed71, type: 3}
   mapBlocks:
-  - selectColor: {r: 0, g: 0, b: 0, a: 0}
+  - selectColor: {r: 0, g: 0.427451, b: 0.64705884, a: 0}
     correspondingCube: 0
-  - selectColor: {r: 0, g: 0, b: 0, a: 0}
-    correspondingCube: 0
-  - selectColor: {r: 0, g: 0, b: 0, a: 0}
-    correspondingCube: 0
-  depth: 0
+  - selectColor: {r: 0.09411766, g: 0.6509804, b: 0, a: 0}
+    correspondingCube: 3
+  - selectColor: {r: 0.64705884, g: 0.38431376, b: 0, a: 0}
+    correspondingCube: 2
+  - selectColor: {r: 0.60784316, g: 0.60784316, b: 0.60784316, a: 0}
+    correspondingCube: 1
+  depth: 16
+  chunks:
+  - pos: {x: 0, y: 0, z: 0}
+  - pos: {x: 16, y: 0, z: 0}
+  - pos: {x: 32, y: 0, z: 0}
+  - pos: {x: 48, y: 0, z: 0}
+  - pos: {x: 64, y: 0, z: 0}
+  - pos: {x: 80, y: 0, z: 0}
+  - pos: {x: 96, y: 0, z: 0}
+  - pos: {x: 112, y: 0, z: 0}
+  - pos: {x: 128, y: 0, z: 0}
+  - pos: {x: 144, y: 0, z: 0}
+  - pos: {x: 160, y: 0, z: 0}
+  - pos: {x: 176, y: 0, z: 0}
+  - pos: {x: 192, y: 0, z: 0}
+  - pos: {x: 208, y: 0, z: 0}
+  - pos: {x: 224, y: 0, z: 0}
+  - pos: {x: 240, y: 0, z: 0}
+  baseMat: {fileID: 2100000, guid: 04ca92f015299634eb2786334a245b5b, type: 2}

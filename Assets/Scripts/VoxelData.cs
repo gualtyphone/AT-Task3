@@ -47,9 +47,9 @@ public class VoxelData {
         }
     }
 
-    public void SetCell(Vector3Int pos)
+    public void SetCell(Vector3Int pos, int type)
     {
-        data[pos.x, pos.y, pos.z] = 1;
+        data[pos.x, pos.y, pos.z] = type;
     }
 
     Vector3Int[] offsets =
