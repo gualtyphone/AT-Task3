@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 [System.Serializable]
 public class Pair
@@ -18,7 +19,10 @@ public class VoxelLevelLoader : MonoBehaviour {
     [SerializeField]
     List<Pair> mapBlocks;
 
-    [Header("3D", order = 1)]
+    [Header("Terraria File", order = 1)]
+    BinaryReader binaryReader;
+
+    [Header("3D", order = 2)]
     [SerializeField]
     int depth;
 
@@ -32,6 +36,9 @@ public class VoxelLevelLoader : MonoBehaviour {
     [SerializeField]
     Material baseMat;
 
+    [SerializeField]
+    SmoothingRecipe recipe;
+
     public void setBlock(Vector3 pos, int blockType)
     {
         if (blockType > 0)
@@ -42,36 +49,45 @@ public class VoxelLevelLoader : MonoBehaviour {
 
             foundChunk.SetCell(new Vector3Int(Mathf.FloorToInt(pos.x % 16), Mathf.FloorToInt(pos.y % 256), Mathf.FloorToInt(pos.z % 16)), blockType);
         }
-        else
-        {
-            int i = 0;
-        }
     }
 
-    private void OnDrawGizmosSelected()
+    public int getBlock(Vector3 pos)
     {
-        foreach (VoxelData c in chunks)
+        Vector3 chunkPos = new Vector3(Mathf.FloorToInt(pos.x / 16.0f), Mathf.FloorToInt(pos.y / 256f), Mathf.FloorToInt(pos.z / 16.0f));
+
+        var foundChunk = chunks.Find(c => c.pos == (chunkPos * 16));
+        if (foundChunk == null)
         {
-            Gizmos.color = Color.red;
-            Vector3 center = new Vector3(c.pos.x + 8.0f, c.pos.y + 128f, c.pos.z + 8.0f);
-            Gizmos.DrawWireCube(center, new Vector3(16.0f, 256f, 16.0f));
+            return 0;
         }
-    }
+        return foundChunk.GetCell(new Vector3Int(Mathf.FloorToInt(pos.x % 16), Mathf.FloorToInt(pos.y % 256), Mathf.FloorToInt(pos.z % 16)));
+    }    
 
     // Use this for initialization
     void Start()
     {
+        Time.timeScale = 0.0f;
+        //TextAsset ta = Resources.Load("WLD files/TestWLD") as TextAsset;
+        //Debug.Log(ta.bytes);
+        //Stream s = new MemoryStream(ta.bytes);
+        //World world = new World();
+        //world.Read(s);
+
+        //return;
+
         chunks = new List<VoxelData>();
         chunkRenderers = new List<VoxelRender>();
         //Create the needed chunks
         chunkWidth = Mathf.CeilToInt(texture.width / 16.0f);
         chunkHeight = Mathf.CeilToInt(texture.height / 256f);
         chunkDepth = Mathf.CeilToInt(depth / 16.0f);
+
+
         for (int i = 0; i < chunkWidth; i++)
         {
             for (int w = 0; w < chunkHeight; w++)
             {
-                for (int j = 0; j < chunkDepth; j++)
+                for (int j = -chunkDepth; j < chunkDepth; j++)
                 {
                     VoxelData c = new VoxelData();
                     c.pos = new Vector3(i * 16, w * 256f, j * 16);
@@ -85,38 +101,51 @@ public class VoxelLevelLoader : MonoBehaviour {
         int width = texture.width;
         int height = texture.height;
 
-        int z = 0;
-        for (z = 0; z < depth; z++)
+        StartCoroutine(CreateWorld(width, height));
+    }
+
+    IEnumerator CreateWorld(int width, int height)
+    {
+        CreateBaseLayer(width);
+        LoadChunks();
+        //yield return new WaitForEndOfFrame();
+        for (int z = 0; z < depth; z++)
         {
-
-            int index = 0;
-            foreach (var a in texture.GetPixels())
+            if (recipe != null)
             {
-                Vector3 pos = Vector3.zero;
-                pos.x = index % width;
-                pos.y = index / width;
-
-                pos.z = z;
-
-                float minDist = float.MaxValue;
-                int closestBlock = mapBlocks[0].correspondingCube;
-
-                foreach (var pair in mapBlocks)
-                {
-                    float currDist = Vector4.Distance(pair.selectColor, a);
-                    if (currDist < minDist)
-                    {
-                        minDist = currDist;
-                        closestBlock = pair.correspondingCube;
-                    }
-                }
-
-                setBlock(pos, closestBlock);
-
-                index++;
+                OneStepSmoothing(z, width, height, 1, recipe);
             }
+            else
+            {
+                OneStepSmoothing(z, width, height, 1);
+            }
+            //UpdateAllChunks();
+            //yield return new WaitForEndOfFrame();
         }
 
+
+        for (int z = 0; z > -depth; z--)
+        {
+            if (recipe != null)
+            {
+                OneStepSmoothing(z, width, height, -1, recipe);
+            }
+            else
+            {
+                OneStepSmoothing(z, width, height, -1);
+            }
+            //UpdateAllChunks();
+            //yield return new WaitForEndOfFrame();
+        }
+
+        UpdateAllChunks();
+        Time.timeScale = 1.0f;
+
+        yield return null;
+    }
+
+    void LoadChunks()
+    {
         foreach (var c in chunks)
         {
             var go = new GameObject();
@@ -129,7 +158,110 @@ public class VoxelLevelLoader : MonoBehaviour {
             rend.Ready(c);
             chunkRenderers.Add(rend);
         }
+    }
 
+    void UpdateAllChunks()
+    {
+        foreach (var c in chunkRenderers)
+        {
+            c.GenerateVoxelMesh();
+            c.UpdateMesh();
+        }
+    }
+
+    void CreateBaseLayer(int width)
+    {
+        //Base Layer
+        int index = 0;
+        foreach (var a in texture.GetPixels())
+        {
+            Vector3 pos = Vector3.zero;
+            pos.x = index % width;
+            pos.y = index / width;
+
+            pos.z = 0;
+
+            float minDist = float.MaxValue;
+            int closestBlock = mapBlocks[0].correspondingCube;
+
+            foreach (var pair in mapBlocks)
+            {
+                float currDist = Vector4.Distance(pair.selectColor, a);
+                if (currDist < minDist)
+                {
+                    minDist = currDist;
+                    closestBlock = pair.correspondingCube;
+                }
+            }
+
+            setBlock(pos, closestBlock);
+
+            index++;
+        }
+    }
+
+    void OneStepSmoothing(int previousLayer, int width, int height, int direction)
+    {
+        //Super-Simple Ruleset
+        for (int y = 0; y < height; y++)
+        {
+            for (int x = 0; x < width; x++)
+            {
+                Vector3 checkPos = new Vector3(x, y, previousLayer);
+                Vector3 newPos = new Vector3(x, y, previousLayer + direction);
+                int blockType = 0;
+
+                int numberOfNeighborsInPreviousLayer = 0;
+                if (getBlock(checkPos) == 0)
+                {
+                    setBlock(newPos, 0);
+                }
+                else
+                {
+                    numberOfNeighborsInPreviousLayer += getBlock(checkPos + new Vector3(1, 0, 0)) == 0 ? 0 : 1;
+                    numberOfNeighborsInPreviousLayer += getBlock(checkPos + new Vector3(-1, 0, 0)) == 0 ? 0 : 1;
+                    numberOfNeighborsInPreviousLayer += getBlock(checkPos + new Vector3(0, 1, 0)) == 0 ? 0 : 1;
+                    numberOfNeighborsInPreviousLayer += getBlock(checkPos + new Vector3(0, -1, 0)) == 0 ? 0 : 1;
+                    numberOfNeighborsInPreviousLayer += getBlock(checkPos + new Vector3(1, 1, 0)) == 0 ? 0 : 1;
+                    numberOfNeighborsInPreviousLayer += getBlock(checkPos + new Vector3(1, -1, 0)) == 0 ? 0 : 1;
+                    numberOfNeighborsInPreviousLayer += getBlock(checkPos + new Vector3(-1, 1, 0)) == 0 ? 0 : 1;
+                    numberOfNeighborsInPreviousLayer += getBlock(checkPos + new Vector3(-1, -1, 0)) == 0 ? 0 : 1;
+
+                    numberOfNeighborsInPreviousLayer += Random.Range(-2, 3);
+
+                    // if number of blocks around this on previous layer < 4
+                    if (numberOfNeighborsInPreviousLayer < 5)
+                    {
+                        // Set block to air
+                        setBlock(newPos, 0);
+                    }
+                    else
+                    {
+                        // If number of blocks sorrounding is > 5
+                        // Set block to full
+                        setBlock(newPos, getBlock(checkPos));
+                    }         
+                }
+            }
+        }
+    }
+
+    void OneStepSmoothing(int previousLayer, int width, int height, int direction, SmoothingRecipe recipe)
+    {
+        //Super-Simple Ruleset
+        for (int y = 0; y < height; y++)
+        {
+            for (int x = 0; x < width; x++)
+            {
+                Vector3 checkPos = new Vector3(x, y, previousLayer);
+                Vector3 newPos = new Vector3(x, y, previousLayer + direction);
+                int blockType = recipe.CheckRecipe(getBlock(checkPos + new Vector3(-1,  1, 0)), getBlock(checkPos + new Vector3( 0,  1, 0)), getBlock(checkPos + new Vector3( 1,  1, 0)),
+                                                   getBlock(checkPos + new Vector3(-1,  0, 0)), getBlock(checkPos + new Vector3( 0,  0, 0)), getBlock(checkPos + new Vector3( 1,  0, 0)),
+                                                   getBlock(checkPos + new Vector3(-1, -1, 0)), getBlock(checkPos + new Vector3( 0, -1, 0)), getBlock(checkPos + new Vector3( 1, -1, 0)));
+
+                setBlock(newPos, blockType);
+            }
+        }
     }
 
     // Update is called once per frame

@@ -1,0 +1,1015 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f673561634c34c4b91d998acd964b0b, type: 3}
+  m_Name: SimpleSmoothing2
+  m_EditorClassIdentifier: 
+  recipes:
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 1
+    blockLeftCent: 0
+    blockCent: 1
+    blockRightCent: 0
+    blockLeftDown: 0
+    blockDown: 1
+    blockRightDown: 0
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 0
+    blockLeftCent: 0
+    blockCent: 1
+    blockRightCent: 1
+    blockLeftDown: 1
+    blockDown: 0
+    blockRightDown: 1
+  - newBlock: 1
+    blockLeftUp: 1
+    blockUp: 1
+    blockRightUp: 0
+    blockLeftCent: 0
+    blockCent: 0
+    blockRightCent: 1
+    blockLeftDown: 0
+    blockDown: 1
+    blockRightDown: 1
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 1
+    blockLeftCent: 1
+    blockCent: 0
+    blockRightCent: 1
+    blockLeftDown: 1
+    blockDown: 0
+    blockRightDown: 1
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 0
+    blockLeftCent: 0
+    blockCent: 1
+    blockRightCent: 0
+    blockLeftDown: 0
+    blockDown: 0
+    blockRightDown: 1
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 0
+    blockRightUp: 1
+    blockLeftCent: 0
+    blockCent: 1
+    blockRightCent: 0
+    blockLeftDown: 0
+    blockDown: 0
+    blockRightDown: 1
+  - newBlock: 2
+    blockLeftUp: 1
+    blockUp: 0
+    blockRightUp: 1
+    blockLeftCent: 1
+    blockCent: 1
+    blockRightCent: 1
+    blockLeftDown: 0
+    blockDown: 0
+    blockRightDown: 0
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 0
+    blockRightUp: 0
+    blockLeftCent: 1
+    blockCent: 1
+    blockRightCent: 0
+    blockLeftDown: 0
+    blockDown: 0
+    blockRightDown: 0
+  - newBlock: 2
+    blockLeftUp: 0
+    blockUp: 0
+    blockRightUp: 0
+    blockLeftCent: 0
+    blockCent: 0
+    blockRightCent: 0
+    blockLeftDown: 1
+    blockDown: 0
+    blockRightDown: 0
+  - newBlock: 1
+    blockLeftUp: 1
+    blockUp: 0
+    blockRightUp: 1
+    blockLeftCent: 0
+    blockCent: 1
+    blockRightCent: 1
+    blockLeftDown: 1
+    blockDown: 1
+    blockRightDown: 0
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 0
+    blockRightUp: 0
+    blockLeftCent: 0
+    blockCent: 0
+    blockRightCent: 1
+    blockLeftDown: 0
+    blockDown: 1
+    blockRightDown: 1
+  - newBlock: 1
+    blockLeftUp: 1
+    blockUp: 0
+    blockRightUp: 1
+    blockLeftCent: 0
+    blockCent: 0
+    blockRightCent: 0
+    blockLeftDown: 0
+    blockDown: 1
+    blockRightDown: 0
+  - newBlock: 2
+    blockLeftUp: 1
+    blockUp: 0
+    blockRightUp: 0
+    blockLeftCent: 0
+    blockCent: 1
+    blockRightCent: 1
+    blockLeftDown: 1
+    blockDown: 1
+    blockRightDown: 1
+  - newBlock: 1
+    blockLeftUp: 1
+    blockUp: 0
+    blockRightUp: 1
+    blockLeftCent: 1
+    blockCent: 0
+    blockRightCent: 0
+    blockLeftDown: 1
+    blockDown: 1
+    blockRightDown: 0
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 0
+    blockLeftCent: 1
+    blockCent: 0
+    blockRightCent: 0
+    blockLeftDown: 1
+    blockDown: 0
+    blockRightDown: 0
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 0
+    blockLeftCent: 0
+    blockCent: 1
+    blockRightCent: 0
+    blockLeftDown: 0
+    blockDown: 0
+    blockRightDown: 0
+  - newBlock: 2
+    blockLeftUp: 1
+    blockUp: 1
+    blockRightUp: 0
+    blockLeftCent: 0
+    blockCent: 0
+    blockRightCent: 0
+    blockLeftDown: 1
+    blockDown: 0
+    blockRightDown: 1
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 0
+    blockLeftCent: 1
+    blockCent: 0
+    blockRightCent: 1
+    blockLeftDown: 0
+    blockDown: 1
+    blockRightDown: 1
+  - newBlock: 2
+    blockLeftUp: 1
+    blockUp: 0
+    blockRightUp: 1
+    blockLeftCent: 1
+    blockCent: 1
+    blockRightCent: 0
+    blockLeftDown: 1
+    blockDown: 0
+    blockRightDown: 1
+  - newBlock: 2
+    blockLeftUp: 0
+    blockUp: 0
+    blockRightUp: 1
+    blockLeftCent: 0
+    blockCent: 0
+    blockRightCent: 0
+    blockLeftDown: 0
+    blockDown: 0
+    blockRightDown: 0
+  - newBlock: 2
+    blockLeftUp: 1
+    blockUp: 1
+    blockRightUp: 0
+    blockLeftCent: 1
+    blockCent: 0
+    blockRightCent: 0
+    blockLeftDown: 0
+    blockDown: 1
+    blockRightDown: 1
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 0
+    blockRightUp: 1
+    blockLeftCent: 1
+    blockCent: 1
+    blockRightCent: 1
+    blockLeftDown: 0
+    blockDown: 1
+    blockRightDown: 1
+  - newBlock: 2
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 0
+    blockLeftCent: 0
+    blockCent: 1
+    blockRightCent: 1
+    blockLeftDown: 1
+    blockDown: 1
+    blockRightDown: 1
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 0
+    blockLeftCent: 1
+    blockCent: 1
+    blockRightCent: 1
+    blockLeftDown: 1
+    blockDown: 1
+    blockRightDown: 0
+  - newBlock: 1
+    blockLeftUp: 1
+    blockUp: 0
+    blockRightUp: 1
+    blockLeftCent: 0
+    blockCent: 1
+    blockRightCent: 1
+    blockLeftDown: 1
+    blockDown: 0
+    blockRightDown: 0
+  - newBlock: 2
+    blockLeftUp: 1
+    blockUp: 1
+    blockRightUp: 0
+    blockLeftCent: 1
+    blockCent: 0
+    blockRightCent: 0
+    blockLeftDown: 0
+    blockDown: 1
+    blockRightDown: 1
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 1
+    blockLeftCent: 0
+    blockCent: 0
+    blockRightCent: 0
+    blockLeftDown: 1
+    blockDown: 0
+    blockRightDown: 1
+  - newBlock: 1
+    blockLeftUp: 1
+    blockUp: 1
+    blockRightUp: 1
+    blockLeftCent: 1
+    blockCent: 1
+    blockRightCent: 1
+    blockLeftDown: 1
+    blockDown: 1
+    blockRightDown: 1
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 0
+    blockRightUp: 1
+    blockLeftCent: 1
+    blockCent: 1
+    blockRightCent: 0
+    blockLeftDown: 0
+    blockDown: 0
+    blockRightDown: 0
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 0
+    blockRightUp: 1
+    blockLeftCent: 1
+    blockCent: 1
+    blockRightCent: 1
+    blockLeftDown: 1
+    blockDown: 1
+    blockRightDown: 0
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 1
+    blockLeftCent: 0
+    blockCent: 1
+    blockRightCent: 0
+    blockLeftDown: 0
+    blockDown: 0
+    blockRightDown: 0
+  - newBlock: 1
+    blockLeftUp: 1
+    blockUp: 1
+    blockRightUp: 1
+    blockLeftCent: 1
+    blockCent: 0
+    blockRightCent: 1
+    blockLeftDown: 0
+    blockDown: 0
+    blockRightDown: 1
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 1
+    blockLeftCent: 1
+    blockCent: 0
+    blockRightCent: 1
+    blockLeftDown: 0
+    blockDown: 1
+    blockRightDown: 1
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 0
+    blockLeftCent: 0
+    blockCent: 1
+    blockRightCent: 0
+    blockLeftDown: 0
+    blockDown: 0
+    blockRightDown: 0
+  - newBlock: 1
+    blockLeftUp: 1
+    blockUp: 0
+    blockRightUp: 0
+    blockLeftCent: 1
+    blockCent: 1
+    blockRightCent: 1
+    blockLeftDown: 0
+    blockDown: 0
+    blockRightDown: 1
+  - newBlock: 2
+    blockLeftUp: 1
+    blockUp: 1
+    blockRightUp: 0
+    blockLeftCent: 0
+    blockCent: 0
+    blockRightCent: 1
+    blockLeftDown: 1
+    blockDown: 0
+    blockRightDown: 1
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 0
+    blockLeftCent: 0
+    blockCent: 1
+    blockRightCent: 1
+    blockLeftDown: 1
+    blockDown: 1
+    blockRightDown: 0
+  - newBlock: 2
+    blockLeftUp: 1
+    blockUp: 1
+    blockRightUp: 0
+    blockLeftCent: 0
+    blockCent: 1
+    blockRightCent: 0
+    blockLeftDown: 0
+    blockDown: 1
+    blockRightDown: 1
+  - newBlock: 2
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 0
+    blockLeftCent: 0
+    blockCent: 1
+    blockRightCent: 0
+    blockLeftDown: 0
+    blockDown: 1
+    blockRightDown: 1
+  - newBlock: 1
+    blockLeftUp: 1
+    blockUp: 1
+    blockRightUp: 1
+    blockLeftCent: 0
+    blockCent: 1
+    blockRightCent: 1
+    blockLeftDown: 0
+    blockDown: 1
+    blockRightDown: 1
+  - newBlock: 2
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 0
+    blockLeftCent: 0
+    blockCent: 1
+    blockRightCent: 0
+    blockLeftDown: 1
+    blockDown: 0
+    blockRightDown: 1
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 1
+    blockLeftCent: 0
+    blockCent: 0
+    blockRightCent: 0
+    blockLeftDown: 0
+    blockDown: 0
+    blockRightDown: 0
+  - newBlock: 1
+    blockLeftUp: 1
+    blockUp: 1
+    blockRightUp: 1
+    blockLeftCent: 1
+    blockCent: 0
+    blockRightCent: 0
+    blockLeftDown: 0
+    blockDown: 1
+    blockRightDown: 1
+  - newBlock: 2
+    blockLeftUp: 0
+    blockUp: 0
+    blockRightUp: 1
+    blockLeftCent: 1
+    blockCent: 1
+    blockRightCent: 0
+    blockLeftDown: 1
+    blockDown: 1
+    blockRightDown: 0
+  - newBlock: 2
+    blockLeftUp: 1
+    blockUp: 1
+    blockRightUp: 1
+    blockLeftCent: 0
+    blockCent: 1
+    blockRightCent: 1
+    blockLeftDown: 1
+    blockDown: 1
+    blockRightDown: 1
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 1
+    blockLeftCent: 0
+    blockCent: 0
+    blockRightCent: 1
+    blockLeftDown: 1
+    blockDown: 0
+    blockRightDown: 0
+  - newBlock: 2
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 0
+    blockLeftCent: 1
+    blockCent: 1
+    blockRightCent: 0
+    blockLeftDown: 1
+    blockDown: 0
+    blockRightDown: 0
+  - newBlock: 1
+    blockLeftUp: 1
+    blockUp: 0
+    blockRightUp: 1
+    blockLeftCent: 0
+    blockCent: 1
+    blockRightCent: 1
+    blockLeftDown: 0
+    blockDown: 1
+    blockRightDown: 0
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 1
+    blockLeftCent: 1
+    blockCent: 0
+    blockRightCent: 1
+    blockLeftDown: 0
+    blockDown: 1
+    blockRightDown: 0
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 1
+    blockLeftCent: 1
+    blockCent: 0
+    blockRightCent: 0
+    blockLeftDown: 0
+    blockDown: 1
+    blockRightDown: 0
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 0
+    blockLeftCent: 0
+    blockCent: 0
+    blockRightCent: 1
+    blockLeftDown: 0
+    blockDown: 0
+    blockRightDown: 0
+  - newBlock: 2
+    blockLeftUp: 1
+    blockUp: 0
+    blockRightUp: 1
+    blockLeftCent: 0
+    blockCent: 1
+    blockRightCent: 1
+    blockLeftDown: 0
+    blockDown: 0
+    blockRightDown: 0
+  - newBlock: 2
+    blockLeftUp: 1
+    blockUp: 0
+    blockRightUp: 0
+    blockLeftCent: 1
+    blockCent: 1
+    blockRightCent: 0
+    blockLeftDown: 1
+    blockDown: 1
+    blockRightDown: 1
+  - newBlock: 2
+    blockLeftUp: 1
+    blockUp: 0
+    blockRightUp: 0
+    blockLeftCent: 0
+    blockCent: 0
+    blockRightCent: 1
+    blockLeftDown: 1
+    blockDown: 1
+    blockRightDown: 1
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 0
+    blockRightUp: 1
+    blockLeftCent: 0
+    blockCent: 1
+    blockRightCent: 1
+    blockLeftDown: 1
+    blockDown: 0
+    blockRightDown: 1
+  - newBlock: 1
+    blockLeftUp: 1
+    blockUp: 0
+    blockRightUp: 0
+    blockLeftCent: 0
+    blockCent: 1
+    blockRightCent: 1
+    blockLeftDown: 0
+    blockDown: 0
+    blockRightDown: 0
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 0
+    blockLeftCent: 0
+    blockCent: 0
+    blockRightCent: 1
+    blockLeftDown: 1
+    blockDown: 1
+    blockRightDown: 0
+  - newBlock: 2
+    blockLeftUp: 0
+    blockUp: 0
+    blockRightUp: 0
+    blockLeftCent: 0
+    blockCent: 1
+    blockRightCent: 0
+    blockLeftDown: 1
+    blockDown: 0
+    blockRightDown: 0
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 0
+    blockRightUp: 1
+    blockLeftCent: 0
+    blockCent: 1
+    blockRightCent: 0
+    blockLeftDown: 0
+    blockDown: 0
+    blockRightDown: 0
+  - newBlock: 1
+    blockLeftUp: 1
+    blockUp: 1
+    blockRightUp: 1
+    blockLeftCent: 0
+    blockCent: 0
+    blockRightCent: 0
+    blockLeftDown: 1
+    blockDown: 1
+    blockRightDown: 0
+  - newBlock: 2
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 1
+    blockLeftCent: 1
+    blockCent: 1
+    blockRightCent: 0
+    blockLeftDown: 1
+    blockDown: 0
+    blockRightDown: 0
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 0
+    blockLeftCent: 0
+    blockCent: 1
+    blockRightCent: 1
+    blockLeftDown: 0
+    blockDown: 0
+    blockRightDown: 0
+  - newBlock: 1
+    blockLeftUp: 1
+    blockUp: 0
+    blockRightUp: 1
+    blockLeftCent: 1
+    blockCent: 1
+    blockRightCent: 1
+    blockLeftDown: 0
+    blockDown: 0
+    blockRightDown: 0
+  - newBlock: 1
+    blockLeftUp: 1
+    blockUp: 1
+    blockRightUp: 0
+    blockLeftCent: 0
+    blockCent: 0
+    blockRightCent: 1
+    blockLeftDown: 1
+    blockDown: 1
+    blockRightDown: 0
+  - newBlock: 1
+    blockLeftUp: 1
+    blockUp: 1
+    blockRightUp: 1
+    blockLeftCent: 0
+    blockCent: 1
+    blockRightCent: 1
+    blockLeftDown: 1
+    blockDown: 0
+    blockRightDown: 1
+  - newBlock: 2
+    blockLeftUp: 1
+    blockUp: 0
+    blockRightUp: 1
+    blockLeftCent: 1
+    blockCent: 0
+    blockRightCent: 0
+    blockLeftDown: 0
+    blockDown: 0
+    blockRightDown: 1
+  - newBlock: 2
+    blockLeftUp: 1
+    blockUp: 0
+    blockRightUp: 1
+    blockLeftCent: 0
+    blockCent: 0
+    blockRightCent: 1
+    blockLeftDown: 1
+    blockDown: 0
+    blockRightDown: 1
+  - newBlock: 2
+    blockLeftUp: 0
+    blockUp: 0
+    blockRightUp: 0
+    blockLeftCent: 0
+    blockCent: 0
+    blockRightCent: 1
+    blockLeftDown: 1
+    blockDown: 1
+    blockRightDown: 0
+  - newBlock: 2
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 1
+    blockLeftCent: 0
+    blockCent: 0
+    blockRightCent: 0
+    blockLeftDown: 0
+    blockDown: 0
+    blockRightDown: 1
+  - newBlock: 2
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 0
+    blockLeftCent: 0
+    blockCent: 1
+    blockRightCent: 0
+    blockLeftDown: 1
+    blockDown: 1
+    blockRightDown: 0
+  - newBlock: 2
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 1
+    blockLeftCent: 0
+    blockCent: 0
+    blockRightCent: 0
+    blockLeftDown: 0
+    blockDown: 0
+    blockRightDown: 0
+  - newBlock: 2
+    blockLeftUp: 0
+    blockUp: 0
+    blockRightUp: 1
+    blockLeftCent: 1
+    blockCent: 0
+    blockRightCent: 1
+    blockLeftDown: 1
+    blockDown: 0
+    blockRightDown: 1
+  - newBlock: 2
+    blockLeftUp: 1
+    blockUp: 0
+    blockRightUp: 1
+    blockLeftCent: 1
+    blockCent: 1
+    blockRightCent: 1
+    blockLeftDown: 0
+    blockDown: 0
+    blockRightDown: 0
+  - newBlock: 1
+    blockLeftUp: 1
+    blockUp: 1
+    blockRightUp: 1
+    blockLeftCent: 1
+    blockCent: 0
+    blockRightCent: 0
+    blockLeftDown: 0
+    blockDown: 1
+    blockRightDown: 0
+  - newBlock: 2
+    blockLeftUp: 0
+    blockUp: 0
+    blockRightUp: 1
+    blockLeftCent: 0
+    blockCent: 1
+    blockRightCent: 0
+    blockLeftDown: 1
+    blockDown: 0
+    blockRightDown: 0
+  - newBlock: 2
+    blockLeftUp: 1
+    blockUp: 1
+    blockRightUp: 1
+    blockLeftCent: 0
+    blockCent: 1
+    blockRightCent: 1
+    blockLeftDown: 1
+    blockDown: 0
+    blockRightDown: 0
+  - newBlock: 2
+    blockLeftUp: 1
+    blockUp: 0
+    blockRightUp: 1
+    blockLeftCent: 1
+    blockCent: 1
+    blockRightCent: 0
+    blockLeftDown: 0
+    blockDown: 0
+    blockRightDown: 1
+  - newBlock: 2
+    blockLeftUp: 0
+    blockUp: 0
+    blockRightUp: 0
+    blockLeftCent: 1
+    blockCent: 1
+    blockRightCent: 1
+    blockLeftDown: 1
+    blockDown: 0
+    blockRightDown: 0
+  - newBlock: 1
+    blockLeftUp: 1
+    blockUp: 1
+    blockRightUp: 1
+    blockLeftCent: 1
+    blockCent: 1
+    blockRightCent: 0
+    blockLeftDown: 0
+    blockDown: 0
+    blockRightDown: 1
+  - newBlock: 2
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 0
+    blockLeftCent: 1
+    blockCent: 1
+    blockRightCent: 0
+    blockLeftDown: 1
+    blockDown: 0
+    blockRightDown: 1
+  - newBlock: 1
+    blockLeftUp: 1
+    blockUp: 0
+    blockRightUp: 1
+    blockLeftCent: 0
+    blockCent: 0
+    blockRightCent: 0
+    blockLeftDown: 0
+    blockDown: 1
+    blockRightDown: 0
+  - newBlock: 2
+    blockLeftUp: 1
+    blockUp: 0
+    blockRightUp: 0
+    blockLeftCent: 0
+    blockCent: 0
+    blockRightCent: 0
+    blockLeftDown: 1
+    blockDown: 0
+    blockRightDown: 0
+  - newBlock: 2
+    blockLeftUp: 0
+    blockUp: 0
+    blockRightUp: 1
+    blockLeftCent: 1
+    blockCent: 1
+    blockRightCent: 0
+    blockLeftDown: 1
+    blockDown: 1
+    blockRightDown: 0
+  - newBlock: 1
+    blockLeftUp: 1
+    blockUp: 1
+    blockRightUp: 0
+    blockLeftCent: 0
+    blockCent: 1
+    blockRightCent: 1
+    blockLeftDown: 0
+    blockDown: 0
+    blockRightDown: 0
+  - newBlock: 2
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 0
+    blockLeftCent: 1
+    blockCent: 1
+    blockRightCent: 1
+    blockLeftDown: 0
+    blockDown: 1
+    blockRightDown: 0
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 0
+    blockLeftCent: 0
+    blockCent: 0
+    blockRightCent: 1
+    blockLeftDown: 1
+    blockDown: 1
+    blockRightDown: 0
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 0
+    blockRightUp: 1
+    blockLeftCent: 1
+    blockCent: 1
+    blockRightCent: 0
+    blockLeftDown: 0
+    blockDown: 0
+    blockRightDown: 1
+  - newBlock: 1
+    blockLeftUp: 1
+    blockUp: 0
+    blockRightUp: 0
+    blockLeftCent: 1
+    blockCent: 0
+    blockRightCent: 0
+    blockLeftDown: 1
+    blockDown: 0
+    blockRightDown: 1
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 0
+    blockRightUp: 0
+    blockLeftCent: 0
+    blockCent: 1
+    blockRightCent: 1
+    blockLeftDown: 0
+    blockDown: 1
+    blockRightDown: 1
+  - newBlock: 2
+    blockLeftUp: 0
+    blockUp: 0
+    blockRightUp: 0
+    blockLeftCent: 1
+    blockCent: 1
+    blockRightCent: 1
+    blockLeftDown: 0
+    blockDown: 1
+    blockRightDown: 0
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 0
+    blockLeftCent: 0
+    blockCent: 1
+    blockRightCent: 1
+    blockLeftDown: 1
+    blockDown: 0
+    blockRightDown: 0
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 0
+    blockLeftCent: 0
+    blockCent: 0
+    blockRightCent: 0
+    blockLeftDown: 1
+    blockDown: 1
+    blockRightDown: 0
+  - newBlock: 2
+    blockLeftUp: 1
+    blockUp: 1
+    blockRightUp: 0
+    blockLeftCent: 1
+    blockCent: 0
+    blockRightCent: 0
+    blockLeftDown: 1
+    blockDown: 1
+    blockRightDown: 0
+  - newBlock: 1
+    blockLeftUp: 1
+    blockUp: 1
+    blockRightUp: 1
+    blockLeftCent: 1
+    blockCent: 0
+    blockRightCent: 1
+    blockLeftDown: 1
+    blockDown: 0
+    blockRightDown: 0
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 1
+    blockLeftCent: 1
+    blockCent: 1
+    blockRightCent: 1
+    blockLeftDown: 1
+    blockDown: 0
+    blockRightDown: 1
+  - newBlock: 1
+    blockLeftUp: 0
+    blockUp: 0
+    blockRightUp: 1
+    blockLeftCent: 1
+    blockCent: 0
+    blockRightCent: 1
+    blockLeftDown: 0
+    blockDown: 0
+    blockRightDown: 1
+  - newBlock: 2
+    blockLeftUp: 0
+    blockUp: 1
+    blockRightUp: 1
+    blockLeftCent: 0
+    blockCent: 0
+    blockRightCent: 1
+    blockLeftDown: 0
+    blockDown: 1
+    blockRightDown: 1
+  - newBlock: 2
+    blockLeftUp: 1
+    blockUp: 1
+    blockRightUp: 0
+    blockLeftCent: 1
+    blockCent: 0
+    blockRightCent: 1
+    blockLeftDown: 1
+    blockDown: 0
+    blockRightDown: 0
+  - newBlock: 1
+    blockLeftUp: 1
+    blockUp: 1
+    blockRightUp: 0
+    blockLeftCent: 0
+    blockCent: 0
+    blockRightCent: 0
+    blockLeftDown: 1
+    blockDown: 1
+    blockRightDown: 1
+  - newBlock: 2
+    blockLeftUp: 1
+    blockUp: 1
+    blockRightUp: 0
+    blockLeftCent: 1
+    blockCent: 1
+    blockRightCent: 0
+    blockLeftDown: 0
+    blockDown: 0
+    blockRightDown: 0
+  randomnessEnabled: 1

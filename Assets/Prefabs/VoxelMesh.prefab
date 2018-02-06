@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70620ae2ed433744c9a4338d1e23a8b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texture: {fileID: 2800000, guid: 3cfabaace491fb34381f4b7eb3e0ed71, type: 3}
+  texture: {fileID: 2800000, guid: 6882277d41892e644809808f40d85ea3, type: 3}
   mapBlocks:
   - selectColor: {r: 0, g: 0.427451, b: 0.64705884, a: 0}
     correspondingCube: 0
@@ -61,22 +61,7 @@ MonoBehaviour:
     correspondingCube: 2
   - selectColor: {r: 0.60784316, g: 0.60784316, b: 0.60784316, a: 0}
     correspondingCube: 1
-  depth: 16
-  chunks:
-  - pos: {x: 0, y: 0, z: 0}
-  - pos: {x: 16, y: 0, z: 0}
-  - pos: {x: 32, y: 0, z: 0}
-  - pos: {x: 48, y: 0, z: 0}
-  - pos: {x: 64, y: 0, z: 0}
-  - pos: {x: 80, y: 0, z: 0}
-  - pos: {x: 96, y: 0, z: 0}
-  - pos: {x: 112, y: 0, z: 0}
-  - pos: {x: 128, y: 0, z: 0}
-  - pos: {x: 144, y: 0, z: 0}
-  - pos: {x: 160, y: 0, z: 0}
-  - pos: {x: 176, y: 0, z: 0}
-  - pos: {x: 192, y: 0, z: 0}
-  - pos: {x: 208, y: 0, z: 0}
-  - pos: {x: 224, y: 0, z: 0}
-  - pos: {x: 240, y: 0, z: 0}
+  depth: 1
+  chunks: []
   baseMat: {fileID: 2100000, guid: 04ca92f015299634eb2786334a245b5b, type: 2}
+  recipe: {fileID: 11400000, guid: 0ee32770b65543a48aa7d23c636e1c54, type: 2}
