@@ -154,7 +154,7 @@ public class VoxelLevelLoader : MonoBehaviour {
             go.AddComponent<VoxelRender>();
             go.GetComponent<MeshRenderer>().material = new Material(baseMat);
             var rend = go.GetComponent<VoxelRender>();
-            rend.transform.position = c.pos;
+            rend.transform.localPosition = c.pos;
             rend.Ready(c);
             chunkRenderers.Add(rend);
         }

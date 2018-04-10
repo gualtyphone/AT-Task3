@@ -38,9 +38,9 @@ MonoBehaviour:
     blockRightUp: 0
     blockLeftCent: 0
     blockCent: 0
-    blockRightCent: 1
+    blockRightCent: 3
     blockLeftDown: 0
-    blockDown: 1
+    blockDown: 2
     blockRightDown: 1
   - newBlock: 1
     blockLeftUp: 0
